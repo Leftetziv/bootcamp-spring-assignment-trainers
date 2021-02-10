@@ -42,8 +42,8 @@ public class DatabaseConfig {
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
         
         properties.put("hibernate.hbm2ddl.auto", "none");
-        properties.put("hibernate.show_sql", "true");
-        properties.put("hibernate.format_sql", "true");
+//        properties.put("hibernate.show_sql", "true");
+//        properties.put("hibernate.format_sql", "true");
         
         
         return properties;

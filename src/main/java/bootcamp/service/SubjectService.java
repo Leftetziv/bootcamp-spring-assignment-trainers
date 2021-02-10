@@ -5,11 +5,11 @@
  */
 package bootcamp.service;
 
+import bootcamp.repository.SubjectRepo;
 import bootcamp.repository.TrainerRepo;
+import bootcamp.entity.Subject;
 import bootcamp.entity.Trainer;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,31 +18,20 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Leyteris
  */
+
 @Transactional
 @Service
-public class TrainerService {
+public class SubjectService {
     
     @Autowired
-    private TrainerRepo trainerRepo;
+    private SubjectRepo SubjectRepo;
 
-    public List<Trainer> getTrainers() {
-        return trainerRepo.findAll();
+    public List<Subject> getSubjects() {
+        return SubjectRepo.findAll();
     }
-
-    public void addTrainer(Trainer trainer) {
-        trainerRepo.save(trainer);
-    }
-
-    public void delete(int id) {
-        trainerRepo.delete(Trainer.class, id);
-    }   
-
-    public Trainer getTrainer(int id) {
-        return trainerRepo.find(id);
-    }    
-
-    public void update(Trainer trainer) {
-        trainerRepo.save(trainer);
-    }
-
+    
+    public Subject getSubject(int id) {
+        return SubjectRepo.find(id);
+    } 
+    
 }

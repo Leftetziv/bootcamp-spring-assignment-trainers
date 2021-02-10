@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bootcamp.dao;
+package bootcamp.repository;
 
 import bootcamp.entity.Trainer;
 import java.util.List;

@@ -7,7 +7,7 @@
     </head>
     <body>
         <!--<h1>Hello from my first Spring MVC App!</h1>-->
-        <h2>${mymessage}</h2>
+        <h2>Spring Assignment</h2>
         <div><a href="${pageContext.request.contextPath}/trainer">Trainers</a></div>
         
     </body>

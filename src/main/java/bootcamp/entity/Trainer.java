@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -55,8 +56,8 @@ public class Trainer implements Serializable {
     private String lname;
     
     @JoinColumn(name = "subject_id", referencedColumnName = "id")
-    @ManyToOne
-    private Subject subjectId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Subject subject;
 
     public Trainer() {
     }
@@ -95,12 +96,12 @@ public class Trainer implements Serializable {
         this.lname = lname;
     }
 
-    public Subject getSubjectId() {
-        return subjectId;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setSubjectId(Subject subjectId) {
-        this.subjectId = subjectId;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     @Override
@@ -129,7 +130,7 @@ public class Trainer implements Serializable {
         sb.append("Trainers{id=").append(id);
         sb.append(", fname=").append(fname);
         sb.append(", lname=").append(lname);
-        sb.append(", subjectId=").append(subjectId);
+        sb.append(", subject=").append(subject);
         sb.append('}');
         return sb.toString();
     }

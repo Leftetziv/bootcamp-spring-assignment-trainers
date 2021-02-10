@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Subject.findAll", query = "SELECT s FROM Subject s"),
     @NamedQuery(name = "Subject.findById", query = "SELECT s FROM Subject s WHERE s.id = :id"),
     @NamedQuery(name = "Subject.findBySubject", query = "SELECT s FROM Subject s WHERE s.subject = :subject")})
-public class Subject implements Serializable {
+public class Subject implements Serializable{
 
     private static final long serialVersionUID = 1L;
     
@@ -47,9 +47,7 @@ public class Subject implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "subject")
     private String subject;
-    
-    @OneToMany(mappedBy = "subjectId")
-    private List<Trainer> trainersList;
+   
 
     public Subject() {
     }
@@ -77,15 +75,6 @@ public class Subject implements Serializable {
 
     public void setSubject(String subject) {
         this.subject = subject;
-    }
-
-    @XmlTransient
-    public List<Trainer> getTrainersList() {
-        return trainersList;
-    }
-
-    public void setTrainersList(List<Trainer> trainersList) {
-        this.trainersList = trainersList;
     }
 
     @Override
@@ -116,7 +105,5 @@ public class Subject implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
-    
-    
+ 
 }

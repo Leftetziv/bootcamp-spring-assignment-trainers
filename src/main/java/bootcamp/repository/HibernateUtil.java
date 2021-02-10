@@ -3,7 +3,7 @@
  * To change this tsessionplate file, choose Tools | Tsessionplates
  * and open the tsessionplate in the editor.
  */
-package bootcamp.dao;
+package bootcamp.repository;
 
 import java.util.List;
 import org.hibernate.Session;

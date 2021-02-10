@@ -27,13 +27,15 @@
         </style>
     </head>
     <body>
+        
+        <div><a href="${pageContext.request.contextPath}/">Home</a></div>
         <div><a href="${pageContext.request.contextPath}/trainer/create">Add Trainer</a></div>
 
         <div><h3>${message}</h3></div>
 
         <h1>Trainer List:</h1>
         <div>
-            <table border="1" style="border-collapse: collapse;">
+            <table>
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -50,7 +52,7 @@
                             <td>${trainer.id}</td>
                             <td>${trainer.fname}</td>
                             <td>${trainer.lname}</td>
-                            <td>${trainer.subjectId.subject}</td>
+                            <td>${trainer.subject.subject}</td>
                             <td><a href="${pageContext.request.contextPath}/trainer/delete/${trainer.id}">Delete</a></td>
                             <td><a href="${pageContext.request.contextPath}/trainer/update/${trainer.id}">Update</a></td>
                         </tr>                        
