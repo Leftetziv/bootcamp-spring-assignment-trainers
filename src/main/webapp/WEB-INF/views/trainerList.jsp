@@ -11,55 +11,67 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Trainer</title>
-        <style>
-            table, td, th {
-                border: 1px solid black;
-                padding: 3px;
-            }
-
-            table {              
-                border-collapse: collapse;
-            }
-            
-            table a{
-                text-decoration: none;
-            }
-        </style>
-        <script src="myJS.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body>
-        
-        <div><a href="${pageContext.request.contextPath}/">Home</a></div>
-        <div><a href="${pageContext.request.contextPath}/trainer/create">Add Trainer</a></div>
 
-        <div><h3>${message}</h3></div>
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/trainer">Trainers</a>
+                </li> 
+            </ul>
+        </nav>
 
-        <h1>Trainer List:</h1>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>              
-                        <th>Subject</th>              
-                        <th>Delete</th>   
-                        <th>Update</th>   
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${listOfTrainers}"  var = "trainer">
+        <div class="container">
+
+            <div><a class="btn btn-info my-2" role="button" href="${pageContext.request.contextPath}/trainer/create">Add Trainer</a></div>
+
+            <c:if test="${message!=null}">
+                <div class="alert alert-info alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>${message}</strong>
+                </div>
+            </c:if>
+
+            <div>
+                <h1 class="text-center">Trainer List:</h1>
+            </div>
+
+            <div>
+                <table class="table table-striped table-bordered" >
+                    <thead class="thead-light"> 
                         <tr>
-                            <td>${trainer.id}</td>
-                            <td>${trainer.fname}</td>
-                            <td>${trainer.lname}</td>
-                            <td>${trainer.subject.subject}</td>
-                            <td><a href="${pageContext.request.contextPath}/trainer/delete/${trainer.id}">Delete</a></td>
-                            <td><a href="${pageContext.request.contextPath}/trainer/update/${trainer.id}">Update</a></td>
-                        </tr>                        
-                    </c:forEach>
-                </tbody>
-            </table>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>              
+                            <th>Subject</th>              
+                            <th>Delete</th>   
+                            <th>Update</th>   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${listOfTrainers}"  var = "trainer">
+                            <tr>
+                                <td>${trainer.id}</td>
+                                <td>${trainer.fname}</td>
+                                <td>${trainer.lname}</td>
+                                <td>${trainer.subject.subject}</td>
+                                <td><a href="${pageContext.request.contextPath}/trainer/delete/${trainer.id}">Delete</a></td>
+                                <td><a href="${pageContext.request.contextPath}/trainer/update/${trainer.id}">Update</a></td>
+                            </tr>                        
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
+
     </body>
 </html>
