@@ -29,9 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "subjects")
 @NamedQueries({
-    @NamedQuery(name = "Subject.findAll", query = "SELECT s FROM Subject s"),
-    @NamedQuery(name = "Subject.findById", query = "SELECT s FROM Subject s WHERE s.id = :id"),
-    @NamedQuery(name = "Subject.findBySubject", query = "SELECT s FROM Subject s WHERE s.subject = :subject")})
+    @NamedQuery(name = "Subject.findAll", query = "SELECT s FROM Subject s")})
 public class Subject implements Serializable{
 
     private static final long serialVersionUID = 1L;

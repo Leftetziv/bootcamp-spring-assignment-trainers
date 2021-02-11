@@ -62,7 +62,7 @@ public class DatabaseConfig {
     
     @Bean
     @Autowired 
-    public HibernateTransactionManager transactionManager(SessionFactory s) { //
+    public HibernateTransactionManager transactionManager(SessionFactory s) {
         
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         

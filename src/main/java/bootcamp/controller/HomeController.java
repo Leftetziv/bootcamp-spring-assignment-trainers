@@ -9,16 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/") 
 public class HomeController {
-    
 
-    
     @RequestMapping("/")
-    public String showHome(Model model){ 
-        
-        model.addAttribute("mymessage", "hello");
-        
+    public String showHome(){ 
         return "home";
     }
     
- 
 }

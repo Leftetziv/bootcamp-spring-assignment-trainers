@@ -30,10 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "trainers")
 @NamedQueries({
-    @NamedQuery(name = "Trainer.findAll", query = "SELECT t FROM Trainer t"),
-    @NamedQuery(name = "Trainer.findById", query = "SELECT t FROM Trainer t WHERE t.id = :id"),
-    @NamedQuery(name = "Trainer.findByFname", query = "SELECT t FROM Trainer t WHERE t.fname = :fname"),
-    @NamedQuery(name = "Trainer.findByLname", query = "SELECT t FROM Trainer t WHERE t.lname = :lname")})
+    @NamedQuery(name = "Trainer.findAll", query = "SELECT t FROM Trainer t")})
 public class Trainer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -59,7 +56,7 @@ public class Trainer implements Serializable {
     private String lname;
     
     @JoinColumn(name = "subject_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private Subject subject;
 
     public Trainer() {
