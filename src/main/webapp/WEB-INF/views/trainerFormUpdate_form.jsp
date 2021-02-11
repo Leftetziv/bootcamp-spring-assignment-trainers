@@ -16,33 +16,33 @@
     </head>
     <body>
         <h1>Update trainer</h1>
-        <form method="POST" action="${pageContext.request.contextPath}/trainer/update">
-            <input type="number" hidden="true" name="id" value="${trainer.id}"/>
+        <form:form modelAttribute="trainer" method="POST" action="${pageContext.request.contextPath}/trainer/update">
+            <form:hidden path="id"/>
             <table>                
                 <tr>
-                    <th><label for=fname">First Name:</label></th>
-                    <th><input type="text" name="fname" id="fname" value="${trainer.fname}"/></th>
+                    <th><form:label path="fname">First Name:</form:label></th>
+                    <th><form:input path="fname"/></th>
                 </tr> 
                 <tr>
-                    <th><label for="lname">Last Name:</label></th>
-                    <th><input type="text" name="lname" id="lname" value="${trainer.lname}"/></th>                
+                    <th><form:label path="lname">Last Name:</form:label></th>
+                    <th><form:input path="lname"/></th>
                 </tr> 
                 <tr>
                     <th></th>
-                    <th><select name="subject.id">
-                            <option value="${trainer.subject.id}" selected="true">${trainer.subject.subject}</option>F
+                    <th><form:select path="subject.id">
+                            <option value="${trainer.subject.id}" selected="true">${trainer.subject.subject}</option>
                             <c:forEach items="${subjects}"  var = "subject">
                                 <c:if test="${subject.id!=trainer.subject.id}">
                                     <option value="${subject.id}">${subject.subject}</option>
                                 </c:if>
                             </c:forEach>
-                        </select>
+                        </form:select>
                     </th>
                 </tr> 
                 <tr>
                     <th colspan="2"><input type="submit" value="Submit trainer"></th>
                 </tr> 
             </table>
-        </form>        
+        </form:form>     
     </body>
 </html>

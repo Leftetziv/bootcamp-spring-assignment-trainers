@@ -25,6 +25,7 @@
                 text-decoration: none;
             }
         </style>
+        <script src="myJS.js"></script>
     </head>
     <body>
         

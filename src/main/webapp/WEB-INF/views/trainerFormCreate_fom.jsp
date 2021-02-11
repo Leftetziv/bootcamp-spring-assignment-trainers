@@ -15,28 +15,30 @@
     </head>
     <body>
         <h1>Create your trainer</h1>            
-        <form method="POST" action="${pageContext.request.contextPath}/trainer/create">
+        <form:form modelAttribute="trainer" method="POST" action="${pageContext.request.contextPath}/trainer/create">
+            <form:hidden path="id"/>
             <table>                
                 <tr>
-                    <th><label for=fname">First Name:</label></th>
-                    <th><input type="text" name="fname" id="fname"/></th>
+                    <th><form:label path="fname">First Name:</form:label></th>
+                    <th><form:input path="fname"/></th>
                 </tr> 
                 <tr>
-                    <th><label for="lname">Last Name:</label></th>
-                        <th><input type="text" name="lname" id="lname"/></th>                </tr> 
-                    <tr>
-                        <th></th>
-                        <th><select name="subject.id">
+                    <th><form:label path="lname">Last Name:</form:label></th>
+                    <th><form:input path="lname"/></th>
+                </tr> 
+                <tr>
+                    <th></th>
+                    <th><form:select path="subject.id">
                             <c:forEach items="${subjects}"  var = "subject">
-                                <option value="${subject.id}">${subject.subject}</option>
+                                <form:option value="${subject.id}">${subject.subject}</form:option>
                             </c:forEach>
-                        </select>
+                        </form:select>
                     </th>
                 </tr> 
                 <tr>
                     <th colspan="2"><input type="submit" value="Submit trainer"></th>
                 </tr> 
             </table>
-        </form>
-</body>
+        </form:form>
+    </body>
 </html>
