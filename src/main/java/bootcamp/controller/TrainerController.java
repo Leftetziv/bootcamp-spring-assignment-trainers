@@ -1,6 +1,5 @@
 package bootcamp.controller;
 
-import bootcamp.entity.Subject;
 import bootcamp.entity.Trainer;
 import bootcamp.service.SubjectService;
 import bootcamp.service.TrainerService;
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -50,7 +47,7 @@ public class TrainerController {
             model.addAttribute("error", "An error occured, Trainer creation failed");
             return "error";
         }
-
+        
         trainerService.addTrainer(trainer);
         redirectAttributes.addFlashAttribute("message", "Successfull creation");
 

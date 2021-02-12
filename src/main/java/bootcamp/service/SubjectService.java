@@ -6,9 +6,7 @@
 package bootcamp.service;
 
 import bootcamp.repository.SubjectRepo;
-import bootcamp.repository.TrainerRepo;
 import bootcamp.entity.Subject;
-import bootcamp.entity.Trainer;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
